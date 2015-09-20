@@ -2167,7 +2167,7 @@
     </path>
 
     <path name="voice-speaker">
-        <path name="voice-call voice-speaker" />
+        <path name="speaker" />
     </path>
     
     <path name="speaker-voice">
@@ -2179,7 +2179,7 @@
     </path>
 
     <path name="voice-speaker-mic">
-        <path name="speaker-dmic-endfire" />
+        <path name="line-vr" />
     </path>
 
     <path name="voice-speaker-mic-db">
