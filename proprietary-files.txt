@@ -20,6 +20,7 @@ lib/libhtcmfg.so
 lib/libhtc_rilhook.so
 lib/libril.so
 lib/librmnetctl.so
+vendor/bin/qti
 vendor/lib64/libconfigdb.so
 vendor/lib64/libdiag.so
 vendor/lib64/lib-dplmedia.so
@@ -146,11 +147,18 @@ etc/firmware/widevine.b01
 etc/firmware/widevine.b02
 etc/firmware/widevine.b03
 etc/firmware/widevine.mdt
+vendor/lib64/mediadrm/libdrmclearkeyplugin.so
 vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
 vendor/lib/libWVStreamControlAPI_L1.so
 vendor/lib/mediadrm/libwvdrmengine.so
+vendor/lib/mediadrm/libdrmclearkeyplugin.so
+vendor/lib/qcdrm/playready/lib/drm/libdrmprplugin_customer.so
+vendor/lib/qcdrm/playready/lib/libprdrmdecrypt_customer.so
+vendor/lib/qcdrm/playready/lib/libtzplayready_customer.so
+vendor/lib/qcdrm/playready/lib/mediadrm/libprmediadrmdecrypt_customer.so
+vendor/lib/qcdrm/playready/lib/mediadrm/libprmediadrmplugin_customer.so
 
 # ADSP-RPC / Vision
 bin/adsprpcd
@@ -296,6 +304,8 @@ etc/tfa/voip_l.drc
 etc/tfa/voip_l.eq
 etc/tfa/voip_l.preset
 etc/tfa/voip.preset
+vendor/bin/audioflacapp
+vendor/bin/sound_trigger_test
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbmapper.so
@@ -332,8 +342,11 @@ lib64/libawb_calibration.so
 lib/hw/camera.vendor.msm8994.so
 lib/libawb_calibration.so
 lib/libBeautyChat.so
+lib/libcamera_client.so
+lib/libcamera_metadata.so
 lib/libcameraface.so
 lib/libcamerapp.so
+lib/libcameraservice.so
 lib/libFaceRetrieve.so
 lib/libmmcamera_interface.so
 lib/libmmjpeg_interface.so
@@ -345,6 +358,7 @@ lib/libmorpho_image_transform.so
 lib/libmorpho_jpeg_io.so
 lib/libmorpho_memory_allocator.so
 lib/libqomx_core.so
+lib/libscaler.so
 vendor/lib64/libmmcamera2_frame_algorithm.so
 vendor/lib64/libmmcamera2_q3a_core.so
 vendor/lib64/libmmcamera2_sensor_debug.so
@@ -814,6 +828,7 @@ vendor/lib/libqomx_jpegenc_pipe.so
 vendor/lib/libqomx_jpegenc.so
 
 # Media
+bin/mediaserver
 etc/firmware/dxcprm.b00
 etc/firmware/dxcprm.b01
 etc/firmware/dxcprm.b02
@@ -831,6 +846,8 @@ etc/firmware/venus.b03
 etc/firmware/venus.b04
 etc/firmware/venus.mbn
 etc/firmware/venus.mdt
+lib64/libc2dcolorconvertgpu.so
+lib/libc2dcolorconvertgpu.so
 vendor/lib64/libDivxDrm.so
 vendor/lib64/libDxCprm.so
 vendor/lib64/libExtendedExtractor.so
@@ -857,7 +874,9 @@ vendor/lib/libOmxAmrwbplusDec.so
 vendor/lib/libOmxEvrcDec.so
 vendor/lib/libOmxQcelp13Dec.so
 vendor/lib/libOmxWmaDec.so
+vendor/lib/libqct_resampler.so
 vendor/lib/libSHIMDivxDrm.so
+vendor/lib/libstagefright_soft_ddpdec.so
 
 # GPS
 lib64/hw/gps.default.so
@@ -882,6 +901,7 @@ vendor/lib/liblbs_core.so
 # Sensors
 bin/downloadsensorhub
 bin/sensors.qcom
+bin/shub_dbg
 lib64/hw/sensors.msm8994.so
 lib64/libhtc_sensorhub.so
 lib/hw/sensors.msm8994.so
@@ -905,11 +925,11 @@ etc/firmware/mc_v2.b01
 etc/firmware/mc_v2.b02
 etc/firmware/mc_v2.b03
 etc/firmware/mc_v2.mdt
-vendor/firmware/keymaster.b00
-vendor/firmware/keymaster.b01
-vendor/firmware/keymaster.b02
-vendor/firmware/keymaster.b03
-vendor/firmware/keymaster.mdt
+vendor/firmware/keymaster/keymaster.b00
+vendor/firmware/keymaster/keymaster.b01
+vendor/firmware/keymaster/keymaster.b02
+vendor/firmware/keymaster/keymaster.b03
+vendor/firmware/keymaster/keymaster.mdt
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
 vendor/lib64/libFidoCrypto.so
@@ -981,7 +1001,6 @@ vendor/lib64/libdpmctmgr.so
 vendor/lib64/libdpmfdmgr.so
 vendor/lib64/libdpmframework.so
 vendor/lib64/libdpmnsrm.so
-vendor/lib64/libmasc.so
 vendor/lib64/libNimsWrap.so
 vendor/lib64/libvendorconn.so
 vendor/lib64/libwqe.so
@@ -993,7 +1012,6 @@ vendor/lib/libdpmctmgr.so
 vendor/lib/libdpmfdmgr.so
 vendor/lib/libdpmframework.so
 vendor/lib/libdpmnsrm.so
-vendor/lib/libmasc.so
 vendor/lib/libNimsWrap.so
 vendor/lib/libvendorconn.so
 vendor/lib/libwqe.so
@@ -1030,6 +1048,8 @@ lib64/libHtcVteEngine.so
 lib/libhtcsecure.so
 lib/libhtc_secureflag.so
 lib/libHtcVteEngine.so
+-priv-app/EasyAccessService/EasyAccessService.apk
+-priv-app/HTC_CIR/HTC_CIR.apk
 
 # NFC
 vendor/firmware/libpn547_fw.so
@@ -1041,7 +1061,17 @@ etc/firmware/securemm.b02
 etc/firmware/securemm.b03
 etc/firmware/securemm.mdt
 
+# Always listening
+vendor/lib64/liblistenjni.so
+vendor/lib64/liblistensoundmodel2.so
+vendor/lib/hw/sound_trigger.primary.msm8994.so
+vendor/lib/liblistenjni.so
+vendor/lib/liblistensoundmodel2.so
+
 # Unknown
+bin/cand
+bin/hrdump
+bin/tpd_daemon
 vendor/lib64/libGPTEE.so
 vendor/lib64/libepdsp.so
 vendor/lib64/libepdsp_SDserver.so
