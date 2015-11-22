@@ -97,19 +97,18 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
 
+# HTC Logging functions
+PRODUCT_PACKAGES += \
+    libhtc
+
 # Init
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.qcom.rc \
+    init.qcom.power.rc \
     init.qcom.usb.rc \
+    init.recovery.qcom.rc \
     ueventd.qcom.rc
-
-PRODUCT_PACKAGES += \
-    init.qcom.sh \
-    init.qcom.coex.sh \
-    init.qcom.fm.sh \
-    init.qcom.post_boot.sh \
-    init.qcom.uicc.sh
 
 # Input
 PRODUCT_COPY_FILES += \
@@ -170,6 +169,7 @@ PRODUCT_PACKAGES += \
     libc2dcolorconvert \
     libdashplayer \
     libdivxdrmdecrypt \
+    libextmedia_jni \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
@@ -181,7 +181,9 @@ PRODUCT_PACKAGES += \
     libOmxVdecHevc \
     libOmxVenc \
     libOmxVidcCommon \
+    libqcmediaplayer \
     libstagefrighthw \
+    libstagefright_soft_flacdec \
     qcmediaplayer
 
 PRODUCT_BOOT_JARS += \

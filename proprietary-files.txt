@@ -790,7 +790,6 @@ vendor/firmware/libpn547_fw.so
 # Perf
 bin/energy-awareness
 bin/msm_irqbalance
-bin/pnpmgr
 bin/perfd
 vendor/lib64/libqti-perfd-client.so
 vendor/lib/libqti-perfd-client.so
@@ -876,9 +875,9 @@ vendor/lib/libthermalclient.so
 -app/TimeService/TimeService.apk
 bin/time_daemon
 -vendor/lib64/libtime_genoff.so
-vendor/lib64/libTimeService.so
+-vendor/lib64/libTimeService.so
 -vendor/lib/libtime_genoff.so
-vendor/lib/libTimeService.so
+-vendor/lib/libTimeService.so
 
 # Wifi
 etc/calibration

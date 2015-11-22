@@ -42,6 +42,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=0 \
     ro.sf.lcd_density=480
 
+# Factory Reset Protection
+PRODUCT_PROPERTY_OVERRIDES += \
+   ro.frp.pst=/dev/block/bootdevice/by-name/frp
+
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.gps.qc_nlp_in_use=1 \
@@ -60,6 +64,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     mm.enable.qcom_parser=3314291 \
     mm.enable.smoothstreaming=true
 
+# NFC
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.nfc.fw_download=true \
+    debug.nfc.fw_boot_download=false
+
 # NITZ
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.rild.nitz_plmn="" \
@@ -76,11 +85,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.min_freq_0=384000 \
+    ro.min_freq_4=384000
+
 # Radio
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     rild.libpath=/system/lib64/libhtc_rilhook.so
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.call_ring.multiple=false
+
 # USB
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.isUsbOtgEnabled=true \
     persist.sys.usb.config=mtp
+
+# Wifi
+PRODUCT_PROPERTY_OVERRIDES += \
+    wifi.interface=wlan0
