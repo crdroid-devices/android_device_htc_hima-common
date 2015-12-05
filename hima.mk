@@ -85,6 +85,15 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/audio/mixer_paths.xml:system/etc/mixer_paths.xml
 
+# Camera
+PRODUCT_PACKAGES += \
+    libcamera_shim
+
+# Compat symbols
+PRODUCT_PACKAGES += \
+    libboringssl-compat \
+    libstlport
+
 # Display
 PRODUCT_PACKAGES += \
     copybit.msm8994 \
@@ -93,13 +102,17 @@ PRODUCT_PACKAGES += \
     memtrack.msm8994 \
     liboverlay
 
+# Dot View Case
+PRODUCT_PACKAGES += \
+    Dotcase
+
 # GPS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
 
 # HTC Logging functions
 PRODUCT_PACKAGES += \
-    libhtc
+    liblog_htc
 
 # Init
 PRODUCT_PACKAGES += \
@@ -145,6 +158,7 @@ PRODUCT_PACKAGES += \
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 PRODUCT_COPY_FILES += \
@@ -194,14 +208,18 @@ PRODUCT_PACKAGES += \
     power.msm8994
 
 # QMI
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/data/dsi_config.xml:system/etc/data/dsi_config.xml \
-    $(LOCAL_PATH)/configs/data/netmgr_config.xml:system/etc/data/netmgr_config.xml \
-    $(LOCAL_PATH)/configs/data/qmi_config.xml:system/etc/data/qmi_config.xml
+PRODUCT_PACKAGES += \
+    dsi_config.xml \
+    netmgr_config.xml \
+    qmi_config.xml
 
 # Recovery
 PRODUCT_PACKAGES += \
     librecovery_updater_hima
+
+# RIL
+PRODUCT_PACKAGES += \
+    libcnefeatureconfig
 
 # Sensors
 PRODUCT_COPY_FILES += \

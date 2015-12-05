@@ -38,10 +38,9 @@ on early-init
     mkdir /firmware/radio 0771 system system
 
 on init
-    chmod 0644 /proc/cmdline
+    export LD_SHIM_LIBS "/system/lib/liblog.so|/system/lib/liblog_htc.so:/system/lib64/liblog.so|/system/lib64/liblog_htc.so:/system/lib/hw/camera.msm8994.so|/system/lib/libcamera_shim.so:/system/vendor/lib/libmmqjpeg_codec.so|/system/lib/libboringssl-compat.so"
 
-    # Preload HTC logging functions
-    export LD_PRELOAD "libhtc.so"
+    chmod 0644 /proc/cmdline
 
     # Set permissions for persist partition
     mkdir /persist 0771 system system
@@ -147,6 +146,9 @@ on boot
     mkdir /dev/socket/qmux_gps 0770 gps gps
     mkdir /dev/socket/qmux_nfc 0770 nfc nfc
     mkdir /dev/socket/qmux_radio 0770 radio radio
+
+    # Create NETMGR daemon socket area
+    mkdir /dev/socket/netmgr 0750 radio radio
 
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/state
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/type
@@ -306,35 +308,6 @@ on boot
 
     chmod 444 /sys/class/optical_sensors/proximity/p_status
     chmod 444 /sys/class/optical_sensors/proximity/ps_adc
-
-    # init PnPMgr node
-    chmod 0664 /sys/power/pnpmgr/apps/media_mode
-    chown media system /sys/power/pnpmgr/apps/media_mode
-    chown system /sys/power/pnpmgr/apps/activity_trigger
-    chown system /sys/power/pnpmgr/apps/non_activity_trigger
-    chown system /sys/power/pnpmgr/launch_event
-    chown system /sys/power/powersave
-    chown system /sys/power/pnpmgr/cluster/big/user_perf_lvl
-    chown system /sys/power/pnpmgr/cluster/big/user_lvl_to_min_freq
-    chown system /sys/power/pnpmgr/cluster/big/hotplug/user_cpunum_max
-    chown system /sys/power/pnpmgr/cluster/big/hotplug/user_cpunum_min
-    chown system /sys/power/pnpmgr/cluster/little/user_perf_lvl
-    chown system /sys/power/pnpmgr/cluster/little/user_lvl_to_min_freq
-    chown system /sys/power/pnpmgr/cluster/little/hotplug/user_cpunum_max
-    chown system /sys/power/pnpmgr/cluster/little/hotplug/user_cpunum_min
-    chown system /sys/power/pnpmgr/touch_boost
-    chown system /sys/power/pnpmgr/long_duration_touch_boost
-    chown system /sys/power/wait_for_fb_status
-    chmod 0664 /sys/power/pnpmgr/display/single_layer
-    chown system /sys/power/pnpmgr/display/single_layer
-
-    write /sys/power/pnpmgr/cluster/big/hotplug/mp_cpunum_max 4
-    write /sys/power/pnpmgr/cluster/big/hotplug/mp_cpunum_min 1
-    write /sys/power/pnpmgr/cluster/little/hotplug/mp_cpunum_max 4
-    write /sys/power/pnpmgr/cluster/little/hotplug/mp_cpunum_min 0
-    write /sys/power/pnpmgr/apps/activity_trigger "booting"
-    write /sys/power/pnpmgr/long_duration_touch_boost_duration 3000
-    write /sys/power/pnpmgr/touch_boost_duration 200
 
     chown system system /sys/class/power_supply/battery/full_level_dis_batt_chg
     chmod 0220 /sys/class/power_supply/battery/full_level_dis_batt_chg
