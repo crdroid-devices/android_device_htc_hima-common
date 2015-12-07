@@ -352,8 +352,8 @@
     <!-- Doze: force using accelerometer as pick up sensor
     <bool name="config_dozeUseAccelerometer">true</bool> -->
 
-    <!-- Boolean to show HW keys enable/disable option -->
-    <bool name="config_hwKeysPref">true</bool>
+    <!-- Boolean to show HW keys enable/disable option
+    <bool name="config_hwKeysPref">true</bool> -->
 
     <!-- enable doze powersaving mode -->
     <bool name="config_enableAutoPowerModes">true</bool>
