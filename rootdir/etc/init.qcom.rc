@@ -38,7 +38,7 @@ on early-init
     mkdir /firmware/radio 0771 system system
 
 on init
-    export LD_SHIM_LIBS "/system/lib/liblog.so|/system/lib/liblog_htc.so:/system/lib64/liblog.so|/system/lib64/liblog_htc.so:/system/lib/hw/camera.msm8994.so|/system/lib/libcamera_shim.so:/system/vendor/lib/libmmqjpeg_codec.so|/system/lib/libboringssl-compat.so"
+    export LD_SHIM_LIBS "/system/lib/liblog.so|/system/lib/liblog_htc.so:/system/lib64/liblog.so|/system/lib64/liblog_htc.so"
 
     chmod 0644 /proc/cmdline
 
@@ -412,7 +412,7 @@ on property:init.svc.per_mgr=running
 on property:sys.shutdown.requested=*
     stop per_proxy
 
-service perfd /system/bin/perfd
+service perfd /system/vendor/bin/perfd
    class main
    user root
    disabled
@@ -441,7 +441,7 @@ service rmt_storage /system/bin/rmt_storage
     class core
     user root
 
-service thermal-engine /system/bin/thermal-engine
+service thermal-engine /system/vendor/bin/thermal-engine
    class main
    user root
    socket thermal-send-client stream 0660 system system
