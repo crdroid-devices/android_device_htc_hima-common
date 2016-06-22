@@ -1,3 +1,10 @@
+on boot
+    # Update foreground and background cpusets
+    write /dev/cpuset/foreground/cpus 0-7
+    write /dev/cpuset/foreground/boost/cpus 4-7
+    write /dev/cpuset/background/cpus 0
+    write /dev/cpuset/system-background/cpus 0-3
+
 on enable-low-power
     # Disable retention on HTC
     write /sys/module/lpm_levels/system/a53/cpu0/retention/idle_enabled 0
